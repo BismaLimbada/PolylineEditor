@@ -5,35 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HCI Phase 1: Requirements - Bisma (B23110006022)</title>
     <style>
+        /* 1. Variables & Base Setup */
         :root {
             --primary: #2563eb;
-            --secondary: #64748b;
             --dark: #0f172a;
             --light: #f8fafc;
-            --accent: #f59e0b;
+            --text-muted: #64748b;
+            --bg-body: #e2e8f0;
         }
-        body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; padding: 20px; color: var(--dark); background-color: #e2e8f0; margin: 0; }
-        .wrapper { max-width: 1000px; margin: 40px auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-        .header { background: var(--dark); color: white; padding: 40px; text-align: center; }
-        .header h1 { margin: 0; font-size: 2.2rem; letter-spacing: -1px; }
-        .header p { opacity: 0.8; margin-top: 10px; font-weight: 300; }
-        
+
+        body { 
+            font-family: 'Inter', system-ui, sans-serif; 
+            line-height: 1.6; 
+            color: var(--dark); 
+            background-color: var(--bg-body); 
+            margin: 0; 
+            padding: 20px;
+        }
+
+        /* 2. Layout Containers */
+        .wrapper { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            background: white; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); 
+        }
+
+        .header { 
+            background: var(--dark); 
+            color: white; 
+            padding: 40px; 
+            text-align: center; 
+        }
+
         .content { padding: 40px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px; 
+            margin-top: 20px; 
+        }
+
+        /* 3. Typography & Components */
+        h1 { margin: 0; font-size: 2.2rem; letter-spacing: -1px; }
         
-        h2 { border-left: 4px solid var(--primary); padding-left: 15px; font-size: 1.5rem; color: var(--dark); margin-top: 40px; }
+        h2 { 
+            border-left: 4px solid var(--primary); 
+            padding-left: 15px; 
+            font-size: 1.5rem; 
+            margin-top: 40px; 
+        }
+
         h3 { color: var(--primary); margin-bottom: 10px; }
-        
-        .card { background: var(--light); padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; }
-        
-        /* Deployment Section */
-        .deployment-zone { background: #1e293b; padding: 40px; border-radius: 12px; margin-top: 40px; color: white; }
-        .canvas-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .key-badge { background: var(--primary); padding: 4px 10px; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
-        
-        canvas { background: white; display: block; margin: 0 auto; border-radius: 8px; cursor: crosshair; width: 100%; max-width: 800px; height: 500px; }
-        
-        .footer { text-align: center; padding: 30px; color: var(--secondary); font-size: 0.85rem; border-top: 1px solid #e2e8f0; }
+
+        .card { 
+            background: var(--light); 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px solid #e2e8f0; 
+        }
+
+        .key-badge { 
+            background: var(--primary); 
+            color: white;
+            padding: 2px 8px; 
+            border-radius: 4px; 
+            font-family: monospace; 
+            font-weight: bold;
+        }
+
+        /* 4. Deployment/Canvas Section */
+        .deployment-zone { 
+            background: #1e293b; 
+            padding: 40px; 
+            border-radius: 12px; 
+            margin-top: 40px; 
+            color: white; 
+        }
+
+        .canvas-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 15px; 
+        }
+
+        .canvas-header h3 { color: white; margin: 0; }
+
+        canvas { 
+            background: white; 
+            display: block; 
+            margin: 0 auto; 
+            border-radius: 8px; 
+            cursor: crosshair; 
+            width: 800px; 
+            height: 500px; 
+            max-width: 100%;
+        }
+
+        .footer { 
+            text-align: center; 
+            padding: 30px; 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+            border-top: 1px solid #e2e8f0; 
+        }
     </style>
 </head>
 <body>
@@ -65,10 +144,12 @@
         <div class="grid">
             <div class="card">
                 <h3>Primary Actions</h3>
-                <ul>
-                    <li><span class="key-badge">B</span> Begin a new line sequence</li>
-                    <li><span class="key-badge">M</span> Move the nearest vertex</li>
-                    <li><span class="key-badge">D</span> Delete the nearest vertex</li>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px;"><span class="key-badge">B</span> Begin a new line sequence</li>
+                    <li style="margin-bottom: 8px;"><span class="key-badge">M</span> Move the nearest vertex</li>
+                    <li style="margin-bottom: 8px;"><span class="key-badge">D</span> Delete the nearest vertex</li>
+                    <li style="margin-bottom: 8px;"><span class="key-badge">R</span> Refresh / Redraw Canvas</li>
+                    <li style="margin-bottom: 8px;"><span class="key-badge">Q</span> Quit Application</li>
                 </ul>
             </div>
             <div class="card">
@@ -76,7 +157,7 @@
                 <ul>
                     <li>Euclidean distance for point selection</li>
                     <li>Buffer for up to 100 active polylines</li>
-                    <li>Screen Refresh <span class="key-badge">R</span> for state cleanup</li>
+                    <li>Coordinate tracking via 2D array structure</li>
                 </ul>
             </div>
         </div>
@@ -84,7 +165,7 @@
         <div class="deployment-zone">
             <div class="canvas-header">
                 <h3>Deployed PolyLine Prototype</h3>
-                <div>Status: <strong>Live</strong></div>
+                <div>Status: <strong style="color: #4ade80;">Live</strong></div>
             </div>
             <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 20px;">
                 Press the keyboard triggers listed above to interact with the canvas below.
