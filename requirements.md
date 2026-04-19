@@ -15,8 +15,8 @@ Observation of students working on manual geography coordinate plotting reveals 
 * Data Limit: Must support a list of up to 100 polylines.
 * Precision Interaction: Must utilize the Euclidean distance formula to identify the vertex closest to the user's cursor for 'm' and 'd' actions.
 * Keyboard Triggers: 
-    `b`: Begin new polyline.
-    `m`: Move nearest vertex.
-    `d`: Delete nearest vertex.
-    `r`: Refresh/Redraw screen.
-    `q`: Quit application.
+    * `b`: Begin new polyline.
+    * `m`: Move nearest vertex.
+    * `d`: Delete nearest vertex.
+    * `r`: Refresh/Redraw screen.
+    * `q`: Quit application.
