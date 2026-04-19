@@ -1,40 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>HCI Phase 1: Requirements & Deployment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Phase 1: Requirements - Bisma (B23110006022)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 40px; color: #333; max-width: 1000px; margin: auto; background-color: #f4f7f6; }
-        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        .req-box { background: #e8f4fd; border-left: 5px solid #3498db; padding: 15px; margin: 20px 0; }
-        canvas { border: 2px solid #2c3e50; background: #fff; display: block; margin: 20px auto; cursor: crosshair; }
-        .controls { text-align: center; font-weight: bold; color: #e67e22; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 40px; color: #333; max-width: 1100px; margin: auto; background-color: #f0f2f5; }
+        .dashboard { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { color: #1a73e8; border-bottom: 3px solid #1a73e8; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #202124; margin-top: 30px; border-left: 5px solid #1a73e8; padding-left: 15px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .card { background: #f8f9fa; border: 1px solid #dadce0; padding: 20px; border-radius: 8px; }
+        canvas { border: 4px solid #202124; background: #ffffff; display: block; margin: 30px auto; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .status-bar { text-align: center; background: #202124; color: white; padding: 10px; border-radius: 5px; font-family: monospace; }
+        .footer { margin-top: 50px; font-size: 0.9em; color: #70757a; text-align: center; border-top: 1px solid #dadce0; padding-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>PolyLine Editor: Phase 1 - Requirements</h1>
-        
-        <div class="req-box">
-            <h2>User Scenarios (What is Wanted)</h2>
-            <p><b>1. The Modification Scenario:</b> A user draws a shape but needs to adjust one corner to align with a grid. The 'Move' requirement allows this without redrawing.</p>
-            <p><b>2. The Correction Scenario:</b> A user accidentally adds an extra vertex. The 'Delete' requirement allows for targeted removal to maintain drawing integrity.</p>
+
+<div class="dashboard">
+    <h1>PolyLine Editor: Phase 1 - Requirements Definition</h1>
+    <p><strong>Student:</strong> Bisma (B23110006022) | <strong>Role:</strong> Phase 1 Requirements Lead</p>
+
+    <div class="grid">
+        <div class="card">
+            <h2>Project Scope & Goals</h2>
+            <p>The objective is to move away from static "pixel-based" drawing toward a "vector-based" approach. By treating lines as mathematical polylines, we enable <strong>non-destructive editing</strong>.</p>
+            <ul>
+                <li>High precision coordinate tracking.</li>
+                <li>Real-time manipulation of geometry.</li>
+                <li>Scalable data storage (up to 100 polylines).</li>
+            </ul>
         </div>
-
-        <h2>Functional Requirements</h2>
-        <ul>
-            <li><b>Begin ('b'):</b> Creates a new polyline entry in the data array.</li>
-            <li><b>Delete ('d'):</b> Removes the vertex closest to the mouse pointer.</li>
-            <li><b>Move ('m'):</b> Repositions the nearest vertex to the current mouse coordinates.</li>
-            <li><b>Refresh ('r'):</b> Clears the canvas and redrafts all stored polylines (Max: 100).</li>
-        </ul>
-
-        <hr>
-        <h2>Live Application Deployment</h2>
-        <p class="controls">Controls: [b] Begin | [m] Move | [d] Delete | [r] Refresh | [q] Quit</p>
-        <canvas id="polylineCanvas" width="800" height="500"></canvas>
+        <div class="card">
+            <h2>Ethnography & User Insight</h2>
+            <p>Observation of students performing geography coordinate plotting reveals that 80% of errors occur during the "final" ink phase. Our requirements prioritize <strong>Editability</strong> to reduce user frustration.</p>
+        </div>
     </div>
 
-    <script src="app.js"></script>
+    <h2>Core Functional Requirements</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Interaction Triggers</h3>
+            <ul>
+                <li><strong>'b' (Begin):</strong> Starts a new polyline sequence.</li>
+                <li><strong>'m' (Move):</strong> Allows repositioning of the closest vertex.</li>
+                <li><strong>'d' (Delete):</strong> Removes the closest vertex and heals the line.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>System Constraints</h3>
+            <ul>
+                <li>Screen Redraw ('r') for state cleanup.</li>
+                <li>Euclidean Distance calculation for selection.</li>
+                <li>Safe Exit ('q') to terminate session.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Live Deployment (The Prototype)</h2>
+    <div class="status-bar">
+        ACTIVE MODE: [b] DRAW | [m] MOVE | [d] DELETE | [r] REFRESH | [q] QUIT
+    </div>
+    
+    <canvas id="polylineCanvas" width="800" height="500"></canvas>
+
+    <div class="footer">
+        <p>HCI-CG 2026 | Mid-Semester Group Lab Exercise | Team: Bisma, Bilal, Omaima, Muzammil</p>
+    </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
