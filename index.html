@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HCI Phase 1: Requirements & Deployment</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 40px; color: #333; max-width: 1000px; margin: auto; background-color: #f4f7f6; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .req-box { background: #e8f4fd; border-left: 5px solid #3498db; padding: 15px; margin: 20px 0; }
+        canvas { border: 2px solid #2c3e50; background: #fff; display: block; margin: 20px auto; cursor: crosshair; }
+        .controls { text-align: center; font-weight: bold; color: #e67e22; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PolyLine Editor: Phase 1 - Requirements</h1>
+        
+        <div class="req-box">
+            <h2>User Scenarios (What is Wanted)</h2>
+            <p><b>1. The Modification Scenario:</b> A user draws a shape but needs to adjust one corner to align with a grid. The 'Move' requirement allows this without redrawing.</p>
+            <p><b>2. The Correction Scenario:</b> A user accidentally adds an extra vertex. The 'Delete' requirement allows for targeted removal to maintain drawing integrity.</p>
+        </div>
+
+        <h2>Functional Requirements</h2>
+        <ul>
+            <li><b>Begin ('b'):</b> Creates a new polyline entry in the data array.</li>
+            <li><b>Delete ('d'):</b> Removes the vertex closest to the mouse pointer.</li>
+            <li><b>Move ('m'):</b> Repositions the nearest vertex to the current mouse coordinates.</li>
+            <li><b>Refresh ('r'):</b> Clears the canvas and redrafts all stored polylines (Max: 100).</li>
+        </ul>
+
+        <hr>
+        <h2>Live Application Deployment</h2>
+        <p class="controls">Controls: [b] Begin | [m] Move | [d] Delete | [r] Refresh | [q] Quit</p>
+        <canvas id="polylineCanvas" width="800" height="500"></canvas>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
