@@ -23,8 +23,8 @@ View my requirements documentation and the live application here:
 ## Team Repositories
 * **Requirements:** Bisma (B23110006022) 
 * **Analysis:** Muhammad Bilal Shahid (B23110006091) - https://github.com/GfxPeak/PolylineEditor
-* **Design:** Omaima Fatima (132) - [Link to Omaima's Repo]
-* **Implementation:** Muzammil Hussain (108) - [Link to Muzammil's Repo]
+* **Design:** Omaima Fatima (132) - https://github.com/omaima-13/PolyLineEditor
+* **Implementation:** Muzammil Hussain (108) - https://github.com/muzammilhussainnn/PolylLineEditor
 
 ## Challenges and Confusions
 * **Requirement Mapping:** Translating manual coordinate plotting tasks (influenced by geography curricula) into specific digital keyboard interrupts.
