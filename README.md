@@ -22,7 +22,7 @@ View my requirements documentation and the live application here:
 
 ## Team Repositories
 * **Requirements:** Bisma (B23110006022) 
-* **Analysis:** Muhammad Bilal Shahid (B23110006091) - https://github.com/GfxPeak/PolylineEditor
+* **Analysis:** Muhammad Bilal Shahid (B23110006091) - https://github.com/GfxPeak/hci-cg-PolylineEditor
 * **Design:** Omaima Fatima (132) - https://github.com/omaima-13/PolyLineEditor
 * **Implementation:** Muzammil Hussain (108) - https://github.com/muzammilhussainnn/PolylLineEditor
 
